@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://localhost:3001/',
+    baseURL: 'https://goldfish-app-2-riitt.ondigitalocean.app/',
 });
