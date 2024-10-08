@@ -12,7 +12,7 @@ console.log(domain)
 // Chaves VAPID
 const vapidKeys = webPush.generateVAPIDKeys();
 
-webPush.setVapidDetails(domain, vapidKeys.publicKey, vapidKeys.privateKey);
+webPush.setVapidDetails(`https://${domain}`, vapidKeys.publicKey, vapidKeys.privateKey);
 
 const app = express();
 
