@@ -10,11 +10,7 @@ const certificate = fs.readFileSync('cert.pem', 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
 // Chaves VAPID
-console.log(webPush.generateVAPIDKeys());
-const vapidKeys = {
-    publicKey: 'BCKbgWsI-1Q8aS1x6g1ZUc8Shin0tjDEFnMisRUkHX6ARo7GY_onkq8W4TzW0SpE3k63hfEc_U9YgcWjaE3j0LY',
-    privateKey: '_GTxJaqGRvUAGGP1xNoSAHtRUz8vdb_jfj0zYL_ODFQ'
-};
+const vapidKeys = webPush.generateVAPIDKeys();
 
 webPush.setVapidDetails('mailto:youremail@example.com', vapidKeys.publicKey, vapidKeys.privateKey);
 
