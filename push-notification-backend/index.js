@@ -7,10 +7,6 @@ require('dotenv').config();
 
 const port = process.env.PORT || 3001; // Use a variável de ambiente PORT
 
-// Leitura dos certificados SSL autoassinados
-const privateKey = fs.readFileSync('key.pem', 'utf8');
-const certificate = fs.readFileSync('cert.pem', 'utf8');
-
 
 // Chaves VAPID
 const vapidKeys = webPush.generateVAPIDKeys();
