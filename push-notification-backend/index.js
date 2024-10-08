@@ -20,6 +20,10 @@ app.use(cors());
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
 app.get('/push/publicKey', (req, res) => {
     res.send(vapidKeys.publicKey);
 });
