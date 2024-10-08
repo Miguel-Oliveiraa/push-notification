@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const port = process.env.PORT || 3001; // Use a variável de ambiente PORT
 const domain = process.env.APP_URL || '0.0.0.0'
+console.log(domain)
 
 // Chaves VAPID
 const vapidKeys = webPush.generateVAPIDKeys();
