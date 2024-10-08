@@ -3,11 +3,14 @@ const webPush = require('web-push');
 const fs = require('fs');
 const https = require('https');
 const cors = require('cors');  
+require('dotenv').config();
+
+const port = process.env.PORT || 3001; // Use a variável de ambiente PORT
 
 // Leitura dos certificados SSL autoassinados
 const privateKey = fs.readFileSync('key.pem', 'utf8');
 const certificate = fs.readFileSync('cert.pem', 'utf8');
-const credentials = { key: privateKey, cert: certificate };
+
 
 // Chaves VAPID
 const vapidKeys = webPush.generateVAPIDKeys();
@@ -15,7 +18,6 @@ const vapidKeys = webPush.generateVAPIDKeys();
 webPush.setVapidDetails('mailto:youremail@example.com', vapidKeys.publicKey, vapidKeys.privateKey);
 
 const app = express();
-const port = 3001;
 
 // Habilitar CORS
 app.use(cors());
@@ -50,6 +52,6 @@ app.post('/push/sendNotification', async (req, res) => {
 });
 
 // Inicializar o servidor HTTPS
-https.createServer(credentials, app).listen(port, () => {
-    console.log(`Servidor HTTPS rodando em https://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor HTTPS rodando em https://0.0.0.0:${port}`);
 });
