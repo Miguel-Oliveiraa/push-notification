@@ -6,12 +6,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 const port = process.env.PORT || 3001; // Use a variável de ambiente PORT
-
+const domain = process.env.APP_DOMAIN || '0.0.0.0'
 
 // Chaves VAPID
 const vapidKeys = webPush.generateVAPIDKeys();
 
-webPush.setVapidDetails(`https://${process.env.APP_DOMAIN}`, vapidKeys.publicKey, vapidKeys.privateKey);
+webPush.setVapidDetails(`https://${domain}`, vapidKeys.publicKey, vapidKeys.privateKey);
 
 const app = express();
 
@@ -53,5 +53,5 @@ app.post('/push/sendNotification', async (req, res) => {
 
 // Inicializar o servidor HTTPS
 app.listen(port, '0.0.0.0', () => {
-    console.log(`Servidor HTTPS rodando em https://0.0.0.0:${port}`);
+    console.log(`Servidor HTTPS rodando em http://${domain}:${port}`);
 });
