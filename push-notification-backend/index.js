@@ -11,7 +11,7 @@ const port = process.env.PORT || 3001; // Use a variável de ambiente PORT
 // Chaves VAPID
 const vapidKeys = webPush.generateVAPIDKeys();
 
-webPush.setVapidDetails('mailto:youremail@example.com', vapidKeys.publicKey, vapidKeys.privateKey);
+webPush.setVapidDetails(`https://${process.env.APP_DOMAIN}`, vapidKeys.publicKey, vapidKeys.privateKey);
 
 const app = express();
 
