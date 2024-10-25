@@ -62,7 +62,7 @@ app.post("/push/sendNotification", async (req, res) => {
         console.error(error);
         res.status(500).json({});
       });
-  }, 5000);
+  }, 100);
 });
 
 // Inicializar o servidor HTTPS
