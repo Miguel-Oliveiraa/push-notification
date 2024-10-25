@@ -42,7 +42,6 @@ app.get("/push/publicKey", (req, res) => {
 
 app.post("/push/subscribe", (req, res) => {
   const subscription = req.body;
-  console.log(subscription);
   res.status(201).json({});
 });
 
